@@ -1,0 +1,4 @@
+# HIDcontroller build property overrides
+#
+
+vm.ctags=false

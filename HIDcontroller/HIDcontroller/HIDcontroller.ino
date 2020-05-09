@@ -1,3 +1,4 @@
+#include <HID.h>
 #include <HID-Settings.h>
 #include <HID-Project.h>
 #include "arduino.h"
