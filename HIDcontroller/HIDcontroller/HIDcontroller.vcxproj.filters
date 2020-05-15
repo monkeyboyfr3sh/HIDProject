@@ -33,9 +33,4 @@
       <Filter>Misc Files</Filter>
     </ResourceCompile>
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="board.txt">
-      <Filter>Misc Files</Filter>
-    </Text>
-  </ItemGroup>
 </Project>

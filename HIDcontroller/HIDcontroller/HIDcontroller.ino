@@ -22,11 +22,6 @@ uint8_t currentVolume;
 void setup() {
     Serial.begin(115200);
     
-    for (int i = 0; i < 100; i++) {
-        Serial.println(".");
-        delay(100);
-    }
-    
     
     if (DEBUG) {
         Serial.println("System will init in: ");
@@ -35,67 +30,26 @@ void setup() {
         
         for (int i = 0; i < 10; i++) {
             Serial.println(10 - i);
-            delay(1000);
+            delay(500);
         }
-
-        Serial.println("System init beginning");
     }
 
-    initSys(90);
+    //initSys(100);
 }
 bool set = false;
 
 void loop() {
-    //listenToSerial();
-    //launch_calc();
     while (!set) {
-        Serial.println("Launching Calculator");
-        delay(100);
-        Consumer.write(HID_CONSUMER_AL_CALCULATOR);
-        delay(1000);
-        Keyboard.write('8');
-        delay(300);
-        Keyboard.write('0');
-        delay(500);
-        Keyboard.write('0');
-        delay(200);
-        Keyboard.write('8');
-        delay(200);
-        Keyboard.write('1');
-        delay(500);
-        Keyboard.write('3');
-        delay(800);
-        Keyboard.write('5');
-
+        launch_prog(HID_CONSUMER_VOLUME);
         set = true;
     }
-    Serial.println("done!");
-    delay(20);
+    //Serial.println("done!");
+    //Consumer.write(HID_CONSUMER_VOLUME);
+    delay(300);
 }
 
-void launch_prog() {
-    /*Need to work on input logic but maybe that should be in another part of the code.
-    int input;
-
-    Serial.println("Launch Calculator? [NO = 0 /YES = 1]");
-    
-    while (!Serial.available()) {
-        input = listenToSerial();
-        delay(10);
-    }
-    if (DEBUG) {
-        Serial.print("Your input is: ");
-        Serial.println(input);
-    }
-    if (input == 1) {
-        Consumer.write(HID_CONSUMER_AL_CALCULATOR);
-        
-        if (DEBUG) {
-            Serial.print("Calculator launched.");
-            Serial.println(input);
-        }
-    }
-    */
+void launch_prog(ConsumerKeycode inputProgram) {
+    Consumer.write(inputProgram);
 }
 
 int listenToSerial()
