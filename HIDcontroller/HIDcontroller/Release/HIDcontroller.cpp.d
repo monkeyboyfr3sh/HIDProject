@@ -53,5 +53,4 @@ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDcontroller\HoodLoader2_HoodLoader2
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\HID-master\src/MultiReport/NKROKeyboard.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\HID-master\src/MultiReport/SurfaceDial.h \
  c:\users\monke\onedrive\documents\arduino\libraries\hid-master\src\hid-apis\surfacedialapi.h \
- c:\users\monke\onedrive\documents\arduino\libraries\hid-master\src\hid-apis\SurfaceDialAPI.hpp \
- C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDcontroller\HoodLoader2_HoodLoader2atmega16u2\Release\consumerDefinitions.h
+ c:\users\monke\onedrive\documents\arduino\libraries\hid-master\src\hid-apis\SurfaceDialAPI.hpp

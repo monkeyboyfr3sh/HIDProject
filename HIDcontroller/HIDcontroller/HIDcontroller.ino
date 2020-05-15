@@ -2,18 +2,14 @@
 #include <HID-Settings.h>
 #include <HID-Project.h>
 #include "arduino.h"
-#include "consumerDefinitions.h"
 
 #define MAXVOLUME 100
 #define MINVOLUME 0
 #define VOLUMEINCREMENT 2
 
-#define INPUTDELAY 50
+#define INPUTDELAY 10
 #define BUFFERSIZE 10
 
-//define true if want to interact with base windows enviroment.
-//define false if using with AutoHotKey, Voicemeeter, etc...
-#define WINDOWSMODE false
 #define DEBUG true
 
 uint8_t defaultVolume;
@@ -30,25 +26,19 @@ void setup() {
         
         for (int i = 0; i < 10; i++) {
             Serial.println(10 - i);
-            delay(500);
+            delay(200);
         }
     }
 
-    //initSys(100);
+    initSys(100);
 }
-bool set = false;
 
 void loop() {
-    while (!set) {
-        launch_prog(HID_CONSUMER_VOLUME);
-        set = true;
-    }
-    //Serial.println("done!");
-    //Consumer.write(HID_CONSUMER_VOLUME);
-    delay(300);
+
 }
 
-void launch_prog(ConsumerKeycode inputProgram) {
+void launch_prog(ConsumerKeycode inputProgram) 
+{
     Consumer.write(inputProgram);
 }
 
@@ -83,13 +73,12 @@ int listenToSerial()
     }
 }
 
-void changeSysVolume(int newVolume) {
+void changeSysVolume(int newVolume)
+{
     //Checks if input is valid
     if ((newVolume >= MINVOLUME) && (newVolume <= MAXVOLUME)) {
 
         while (newVolume > currentVolume) {
-            //if (WINDOWSMODE) Consumer.write(MEDIA_VOLUME_UP);
-            //Might want to shift to keyboard strikes later on
             Consumer.write(MEDIA_VOLUME_UP);
             currentVolume = currentVolume + VOLUMEINCREMENT;
             
@@ -103,16 +92,6 @@ void changeSysVolume(int newVolume) {
         }
     }
     Keyboard.releaseAll();
-}
-
-int getDefaultVal()
-{
-    return defaultVolume;
-}
-
-int getCurrentVal()
-{
-    return currentVolume;
 }
 
 void initSys(int defaultVolume)
@@ -129,13 +108,6 @@ void initSys(int defaultVolume)
     }
     for (int i = 0; i <= MAXVOLUME; i++) {
         Consumer.write(MEDIA_VOLUME_DOWN);
-        /*
-        if (WINDOWSMODE) Consumer.write(MEDIA_VOLUME_DOWN);
-        else {
-            Keyboard.press(KEY_LEFT_CTRL);
-            Keyboard.press('\350');
-        }
-        */
         delay(INPUTDELAY);
     }
 
@@ -146,7 +118,8 @@ void initSys(int defaultVolume)
     changeSysVolume(defaultVolume);
 }
 
-void setDefaultVal(int newDefault)
+void setDefaultVal(int defaultInput)
 {
-    defaultVolume = newDefault;
+    defaultVolume = defaultInput;
+    if (DEBUG) Serial.println("Changing default value");
 }
