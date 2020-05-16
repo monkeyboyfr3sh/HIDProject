@@ -12,6 +12,9 @@
 
 #define DEBUG true
 
+int sensorPin = 14;
+int sensorValue = 0;
+
 uint8_t defaultVolume;
 uint8_t currentVolume;
 
@@ -34,14 +37,16 @@ void setup() {
 }
 
 void loop() {
-
+    sensorValue = analogRead(sensorPin);
+    Serial.println(sensorValue);
+    delay(100);
 }
 
 void launch_prog(ConsumerKeycode inputProgram) 
 {
     Consumer.write(inputProgram);
 }
-
+/*
 int listenToSerial()
 {
     if (Serial.available()) {
@@ -72,6 +77,7 @@ int listenToSerial()
         changeSysVolume(value);
     }
 }
+*/
 
 void changeSysVolume(int newVolume)
 {
