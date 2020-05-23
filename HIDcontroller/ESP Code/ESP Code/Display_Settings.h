@@ -1,6 +1,7 @@
 // Display_Settings.h
 #include <SPI.h>
 #include <SSD_13XX.h>
+#include "Debug.h"
 
 #include "_fonts/msShell14.c"
 #include "_fonts/orbitron14.c"
@@ -8,7 +9,6 @@
 
 #include "_icons/spkOn.c"
 #include "_icons/spkOff.c"
-
 
 //Number of Displays
 #define NUM_DISPLAY 3
@@ -24,17 +24,31 @@
 class Display_Settings
 {
 protected:
+    int DisplayCount = NUM_DISPLAY;
+
     //CS Pin Definitions
     int CSArray[NUM_DISPLAY] =
     {
-        /*Display 1 CS*/    23,
-        /*Display 2 CS*/    21,
-        /*Display 3 CS*/    22
+        /*Display 0 CS*/    23,
+        /*Display 1 CS*/    21,
+        /*Display 2 CS*/    22
     };
 
-    int DisplayCount = NUM_DISPLAY;
-
+    SSD_13XX DisplayArray[NUM_DISPLAY] =
+    {
+        SSD_13XX(CSArray[0],_dc,_rst),
+        SSD_13XX(CSArray[1],_dc,_rst),
+        SSD_13XX(CSArray[2],_dc,_rst)
+    };
 public:
     void begin();
-    void playIconAll();
+    void countDisplay();
+    void clearDisplay();
+
+    void playIconAll(int outputdelay);
+
+    void setTextScaleAll (int scale);
+
+    void setRotation(int DisplaySelect,int DisplayRotation);
+    void setRotationAll(int DisplayRotation);
 };

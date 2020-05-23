@@ -128,6 +128,7 @@ C:\Users\monke\AppData\Local\Temp\VMBuilds\ESP\ Code\esp32_nodemcu-32s\Release\E
  C:\Users\monke\AppData\Local\arduino15\packages\esp32\hardware\esp32\1.0.4\cores\esp32/Esp.h \
  C:\Users\monke\AppData\Local\arduino15\packages\esp32\hardware\esp32\1.0.4\cores\esp32/Arduino.h \
  C:\Users\monke\AppData\Local\arduino15\packages\esp32\hardware\esp32\1.0.4\variants\nodemcu-32s/pins_arduino.h \
+ C:\Users\monke\AppData\Local\Temp\VMBuilds\ESP\ Code\esp32_nodemcu-32s\Release\Debug.h \
  C:\Users\monke\AppData\Local\Temp\VMBuilds\ESP\ Code\esp32_nodemcu-32s\Release\Display_Settings.h \
  C:\Users\monke\AppData\Local\arduino15\packages\esp32\hardware\esp32\1.0.4\libraries\SPI\src/SPI.h \
  C:\Users\monke\AppData\Local\arduino15\packages\esp32\hardware\esp32\1.0.4\cores\esp32/esp32-hal-spi.h \

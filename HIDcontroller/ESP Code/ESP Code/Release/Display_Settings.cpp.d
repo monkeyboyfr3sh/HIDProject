@@ -143,6 +143,7 @@ C:\Users\monke\AppData\Local\Temp\VMBuilds\ESP\ Code\esp32_nodemcu-32s\Release\D
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_includes/sumotoy_imageDescription.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_includes/sumotoy_iconDescription.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_fonts/defaultFont.c \
+ C:\Users\monke\AppData\Local\Temp\VMBuilds\ESP\ Code\esp32_nodemcu-32s\Release\Debug.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_fonts/msShell14.c \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_fonts/orbitron14.c \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_fonts/mono_mid.c \
