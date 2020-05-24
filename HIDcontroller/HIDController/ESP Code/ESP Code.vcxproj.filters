@@ -30,12 +30,24 @@
     <ClInclude Include="Debug.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SD_Reader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Display_Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Display_Settings.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Debug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SD_Reader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Display_Resources.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

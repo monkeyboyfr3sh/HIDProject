@@ -2,7 +2,6 @@
 
 void Display_Settings::begin()
 {
-	SPI.begin(_sclk, _miso, _mosi, _cs);
 	for (int i = 0; i < NUM_DISPLAY; i++) {
 		DisplayArray[i].begin();
 		if (DEBUG)
@@ -10,6 +9,12 @@ void Display_Settings::begin()
 			Serial.print("Initializing display ");
 			Serial.println(i);
 		}
+	}
+	
+	sdSetup = SDCard.begin();
+	if (DEBUG) {
+		Serial.print("SD Card Status: ");
+		Serial.println(sdSetup);
 	}
 }
 
@@ -24,6 +29,19 @@ void Display_Settings::playIconAll(int outputdelay)
 		DisplayArray[i].drawIcon(0, 0, &spkOff, 3, RED, BLACK, true);
 	}
 	delay(outputdelay);
+}
+
+void Display_Settings::setImageAll()
+{
+	delay(200);
+	for (int i = 0; i < NUM_DISPLAY; i++) {
+		DisplayArray[i].drawImage(0,0, &wifi2s);
+	}
+	delay(200);
+	for (int i = 0; i < NUM_DISPLAY; i++) {
+		DisplayArray[i].drawImage(0, 0, &wifi2sr);
+	}
+	delay(200);
 }
 
 void Display_Settings::setTextScaleAll(int newscale)

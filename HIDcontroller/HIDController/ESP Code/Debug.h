@@ -1,2 +1,2 @@
 // Debug.h
-#define DEBUG false
+#define DEBUG true
