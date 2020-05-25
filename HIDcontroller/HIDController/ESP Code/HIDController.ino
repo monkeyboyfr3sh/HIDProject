@@ -1,21 +1,13 @@
-#include "Debug.h"
-#include "Display_Settings.h"
+#include "DeviceController.h"
 
-#define LEDPin 2
-Display_Settings Display;
+DeviceController Controller;
 
 void setup(void) {
     Serial.begin(115200);
-    Display.begin();
-    Display.setRotationAll(2);
-    Display.setTextScaleAll(2);
+    Controller.begin(2);
+    Controller.setTextScale(2);
+    Controller.controllerDemo();
 }
 
 void loop() {
-    delay(100);
-    /*
-    Display.clearDisplay();
-    Display.countDisplay();
-    */
-    Display.setImageAll();
 }

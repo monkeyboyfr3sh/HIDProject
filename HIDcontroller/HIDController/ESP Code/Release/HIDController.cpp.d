@@ -13,7 +13,7 @@ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\HIDCon
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/USBDesc.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/USBCore.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\variants\leonardo/pins_arduino.h \
- C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\Debug.h \
+ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\DeviceController.h \
  C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\Display_Settings.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/SSD_13XX.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/Arduino.h \
@@ -37,6 +37,7 @@ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\HIDCon
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/utility/SdInfo.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/utility/FatStructs.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/utility/SdFatUtil.h \
+ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\Debug.h \
  C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\Display_Resources.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_fonts/msShell14.c \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_fonts/orbitron14.c \
@@ -46,4 +47,44 @@ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\HIDCon
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_images/hands.c \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_images/wifi2.c \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_images/wifi2s.c \
- C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_images/wifi2sr.c
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_images/wifi2sr.c \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\HID-master\src/HID-Project.h \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\HID-master\src/SingleReport/SingleAbsoluteMouse.h \
+ C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\libraries\HID\src/HID.h \
+ C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/PluggableUSB.h \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\HID-master\src/HID-Settings.h \
+ c:\users\monke\onedrive\documents\arduino\libraries\hid-master\src\hid-apis\absolutemouseapi.h \
+ c:\users\monke\onedrive\documents\arduino\libraries\hid-master\src\hid-apis\AbsoluteMouseAPI.hpp \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\HID-master\src/MultiReport/AbsoluteMouse.h \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\HID-master\src/SingleReport/BootMouse.h \
+ c:\users\monke\onedrive\documents\arduino\libraries\hid-master\src\hid-apis\mouseapi.h \
+ c:\users\monke\onedrive\documents\arduino\libraries\hid-master\src\hid-apis\MouseAPI.hpp \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\HID-master\src/MultiReport/ImprovedMouse.h \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\HID-master\src/SingleReport/SingleConsumer.h \
+ c:\users\monke\onedrive\documents\arduino\libraries\hid-master\src\hid-apis\consumerapi.h \
+ c:\users\monke\onedrive\documents\arduino\libraries\hid-master\src\hid-apis\ConsumerAPI.hpp \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\HID-master\src/MultiReport/Consumer.h \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\HID-master\src/SingleReport/SingleGamepad.h \
+ c:\users\monke\onedrive\documents\arduino\libraries\hid-master\src\hid-apis\gamepadapi.h \
+ c:\users\monke\onedrive\documents\arduino\libraries\hid-master\src\hid-apis\GamepadAPI.hpp \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\HID-master\src/MultiReport/Gamepad.h \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\HID-master\src/SingleReport/SingleSystem.h \
+ c:\users\monke\onedrive\documents\arduino\libraries\hid-master\src\hid-apis\systemapi.h \
+ c:\users\monke\onedrive\documents\arduino\libraries\hid-master\src\hid-apis\SystemAPI.hpp \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\HID-master\src/MultiReport/System.h \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\HID-master\src/SingleReport/RawHID.h \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\HID-master\src/SingleReport/BootKeyboard.h \
+ c:\users\monke\onedrive\documents\arduino\libraries\hid-master\src\hid-apis\defaultkeyboardapi.h \
+ c:\users\monke\onedrive\documents\arduino\libraries\hid-master\src\hid-apis\KeyboardAPI.h \
+ c:\users\monke\onedrive\documents\arduino\libraries\hid-master\src\keyboardlayouts\improvedkeylayouts.h \
+ c:\users\monke\onedrive\documents\arduino\libraries\hid-master\src\keyboardlayouts\ImprovedKeylayoutsUS.h \
+ c:\users\monke\onedrive\documents\arduino\libraries\hid-master\src\hid-apis\KeyboardAPI.hpp \
+ c:\users\monke\onedrive\documents\arduino\libraries\hid-master\src\hid-apis\DefaultKeyboardAPI.hpp \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\HID-master\src/MultiReport/ImprovedKeyboard.h \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\HID-master\src/SingleReport/SingleNKROKeyboard.h \
+ c:\users\monke\onedrive\documents\arduino\libraries\hid-master\src\hid-apis\nkrokeyboardapi.h \
+ c:\users\monke\onedrive\documents\arduino\libraries\hid-master\src\hid-apis\NKROKeyboardAPI.hpp \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\HID-master\src/MultiReport/NKROKeyboard.h \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\HID-master\src/MultiReport/SurfaceDial.h \
+ c:\users\monke\onedrive\documents\arduino\libraries\hid-master\src\hid-apis\surfacedialapi.h \
+ c:\users\monke\onedrive\documents\arduino\libraries\hid-master\src\hid-apis\SurfaceDialAPI.hpp

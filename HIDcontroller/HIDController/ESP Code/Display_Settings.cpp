@@ -2,11 +2,11 @@
 
 void Display_Settings::begin()
 {
-	for (int i = 0; i < NUM_DISPLAY; i++) {
-		DisplayArray[i].begin();
+	for (int i = 0; i < screenCount; i++) {
+		ScreenArray[i].begin();
 		if (DEBUG)
 		{
-			Serial.print("Initializing display ");
+			Serial.print("Initializing Screen ");
 			Serial.println(i);
 		}
 	}
@@ -18,63 +18,83 @@ void Display_Settings::begin()
 	}
 }
 
-void Display_Settings::playIconAll(int outputdelay)
+void Display_Settings::playIcon(int OutputDelay)
 {
-	for (int i = 0; i < NUM_DISPLAY; i++) {
-		DisplayArray[i].drawIcon(0, 0, &spkOn, 3, WHITE, BLACK, true);
+	for (int i = 0; i < screenCount; i++) {
+		ScreenArray[i].drawIcon(0, 0, &spkOn, 3, WHITE, BLACK, true);
 	}
 	//I don't like having a simple delay but it will work for now.
-	delay(outputdelay);
-	for (int i = 0; i < NUM_DISPLAY; i++) {
-		DisplayArray[i].drawIcon(0, 0, &spkOff, 3, RED, BLACK, true);
+	delay(OutputDelay);
+	for (int i = 0; i < screenCount; i++) {
+		ScreenArray[i].drawIcon(0, 0, &spkOff, 3, RED, BLACK, true);
 	}
-	delay(outputdelay);
+	delay(OutputDelay);
 }
 
 void Display_Settings::setImageAll()
 {
 	delay(200);
-	for (int i = 0; i < NUM_DISPLAY; i++) {
-		DisplayArray[i].drawImage(0,0, &wifi2s);
+	for (int i = 0; i < screenCount; i++) {
+		ScreenArray[i].drawImage(0,0, &wifi2s);
 	}
 	delay(200);
-	for (int i = 0; i < NUM_DISPLAY; i++) {
-		DisplayArray[i].drawImage(0, 0, &wifi2sr);
+	for (int i = 0; i < screenCount; i++) {
+		ScreenArray[i].drawImage(0, 0, &wifi2sr);
 	}
 	delay(200);
 }
 
-void Display_Settings::setTextScaleAll(int newscale)
+void Display_Settings::setIcon(int ScreenSelect, int IconSelect, int Color1, int Color2)
 {
-	for (int i = 0; i < NUM_DISPLAY; i++) {
-		DisplayArray[i].setTextScale(newscale);
+}
+
+void Display_Settings::setIcon(int IconSelect,int Color1, int Color2)
+{
+	for (int i = 0; i < screenCount; i++) {
+		ScreenArray[i].drawIcon(0, 0, &spkOn, 1, Color1, Color2, true);
+	}
+}//&Resource.iconArray[IconSelect]
+
+void Display_Settings::setTextScale(int ScreenSelect, int Scale)
+{
+	ScreenArray[ScreenSelect].setTextScale(Scale);
+}
+
+void Display_Settings::setTextScale(int Scale)
+{
+	for (int i = 0; i < screenCount; i++) {
+		ScreenArray[i].setTextScale(Scale);
 	}
 }
 
-void Display_Settings::countDisplay()
+void Display_Settings::countScreen()
 {
-	for (int i = 0; i < NUM_DISPLAY; i++) {
-		DisplayArray[i].println("This is display: ");
-		DisplayArray[i].println(i);
+	for (int i = 0; i < screenCount; i++) {
+		ScreenArray[i].println("This is screen: ");
+		ScreenArray[i].println(i);
 	}
 }
 
-void Display_Settings::clearDisplay()
+void Display_Settings::clearScreen(int ScreenSelect)
 {
-	for (int i = 0; i < NUM_DISPLAY; i++) {
-		DisplayArray[i].clearScreen();
+	ScreenArray[ScreenSelect].clearScreen();
+}
+void Display_Settings::clearScreen()
+{
+	for (int i = 0; i < screenCount; i++) {
+		ScreenArray[i].clearScreen();
 	}
 }
 
-void Display_Settings::setRotationAll(int DisplayRotation)
+void Display_Settings::setRotation(int ScreenSelect, int ScreenRotation)
 {
-	for (int i = 0; i < NUM_DISPLAY; i++)
+	ScreenArray[ScreenSelect].setRotation(ScreenRotation);
+}
+
+void Display_Settings::setRotation(int ScreenRotation)
+{
+	for (int i = 0; i < screenCount; i++)
 	{
-		DisplayArray[i].setRotation(DisplayRotation);
+		ScreenArray[i].setRotation(ScreenRotation);
 	}
-}
-
-void Display_Settings::setRotation(int DisplaySelect, int DisplayRotation)
-{
-	DisplayArray[DisplaySelect].setRotation(DisplayRotation);
 }
