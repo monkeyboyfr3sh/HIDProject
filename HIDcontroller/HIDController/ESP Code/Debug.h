@@ -1,3 +1,3 @@
 // Debug.h
-#define DEBUG true
+#define DEBUG false
 #define LEDPin 2

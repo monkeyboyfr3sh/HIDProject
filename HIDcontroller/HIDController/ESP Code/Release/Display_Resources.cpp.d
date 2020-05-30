@@ -27,12 +27,6 @@ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\Displa
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_includes/sumotoy_imageDescription.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_includes/sumotoy_iconDescription.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_fonts/defaultFont.c \
- C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_fonts/msShell14.c \
- C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_fonts/orbitron14.c \
- C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_fonts/mono_mid.c \
- C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_icons/spkOn.c \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_icons/sdCard.c \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_icons/spkOff.c \
- C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_images/hands.c \
- C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_images/wifi2.c \
- C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_images/wifi2s.c \
- C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_images/wifi2sr.c
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_icons/spkOn.c

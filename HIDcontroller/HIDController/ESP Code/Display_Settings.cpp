@@ -8,25 +8,34 @@ void Display_Settings::begin()
 		{
 			Serial.print("Initializing Screen ");
 			Serial.println(i);
+			ScreenArray[i].print("Screen ");
+			ScreenArray[i].print(i);
+			ScreenArray[i].println(" Setup");
 		}
 	}
-	
-	sdSetup = SDCard.begin();
-	if (DEBUG) {
-		Serial.print("SD Card Status: ");
-		Serial.println(sdSetup);
+}
+
+void Display_Settings::printText(int ScreenSelect, char *text)
+{
+	ScreenArray[ScreenSelect].println(text);
+}
+
+void Display_Settings::printText(char *text)
+{
+	for (int i = 0; i < screenCount; i++) {
+		ScreenArray[i].println(text);
 	}
 }
 
 void Display_Settings::playIcon(int OutputDelay)
 {
 	for (int i = 0; i < screenCount; i++) {
-		ScreenArray[i].drawIcon(0, 0, &spkOn, 3, WHITE, BLACK, true);
+		ScreenArray[i].drawIcon(0, 0, &sdCard, 3, WHITE, BLACK, true);
 	}
 	//I don't like having a simple delay but it will work for now.
 	delay(OutputDelay);
 	for (int i = 0; i < screenCount; i++) {
-		ScreenArray[i].drawIcon(0, 0, &spkOff, 3, RED, BLACK, true);
+		ScreenArray[i].drawIcon(0, 0, &sdCard, 3, GREEN, BLACK, true);
 	}
 	delay(OutputDelay);
 }
@@ -35,25 +44,14 @@ void Display_Settings::setImageAll()
 {
 	delay(200);
 	for (int i = 0; i < screenCount; i++) {
-		ScreenArray[i].drawImage(0,0, &wifi2s);
+		//ScreenArray[i].drawImage(0,0, &wifi2s);
 	}
 	delay(200);
 	for (int i = 0; i < screenCount; i++) {
-		ScreenArray[i].drawImage(0, 0, &wifi2sr);
+		//ScreenArray[i].drawImage(0, 0, &wifi2sr);
 	}
 	delay(200);
 }
-
-void Display_Settings::setIcon(int ScreenSelect, int IconSelect, int Color1, int Color2)
-{
-}
-
-void Display_Settings::setIcon(int IconSelect,int Color1, int Color2)
-{
-	for (int i = 0; i < screenCount; i++) {
-		ScreenArray[i].drawIcon(0, 0, &spkOn, 1, Color1, Color2, true);
-	}
-}//&Resource.iconArray[IconSelect]
 
 void Display_Settings::setTextScale(int ScreenSelect, int Scale)
 {

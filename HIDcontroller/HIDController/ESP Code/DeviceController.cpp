@@ -4,8 +4,29 @@ void DeviceController::begin()
 {
 	Consumer.begin();
 	Display.begin();
+	
+	sdSetup = SDCard.begin();
+	if (DEBUG) {
+		Serial.print("SD Card Status: ");
+		Serial.println(sdSetup);
+	}
+	
+	/*
+	//Demo of selecting a file and saving
+	CurrentFile = &SD.open("setup.txt", FILE_READ);
+	SDCard.returnLine(CurrentFile);
+	CurrentFile->close();
+	CurrentFile = &SD.open("/");
+	SDCard.loadIcons(CurrentFile);
+	CurrentFile->close();
+	*/
+
+	//playPause vars
 	time = millis();
 	paused = false;
+
+	//Saftey clear screen
+	Display.clearScreen();
 }
 
 void DeviceController::begin(int SetRotationAll)
@@ -14,58 +35,53 @@ void DeviceController::begin(int SetRotationAll)
 	Display.setRotation(SetRotationAll);
 }
 
-void DeviceController::setRotation(int Screen, int Rotation)
-{
-	Display.setRotation(Screen, Rotation);
-}
-
-void DeviceController::setTextScale(int ScreenSlect, int Scale)
-{
-	Display.setTextScale(ScreenSlect, Scale);
-}
-
-void DeviceController::setTextScale(int Scale)
-{
-	Display.setTextScale(Scale);
-}
-
-void DeviceController::playPause()
-{
-	if ((millis() - time) > defaultDelay) {
-		if (paused) {
-			Display.setIcon(0, WHITE, BLACK);
-			Consumer.write(MEDIA_PLAY_PAUSE);
-			paused = false;
-		}
-		else {
-			Display.setIcon(1, RED, BLACK);
-			Consumer.write(MEDIA_PLAY_PAUSE);
-			paused = true;
-		}
-		time = millis();
-	}
-}
-void DeviceController::playPause(int Delay)
-{
-	if ((millis() - time) > Delay) {
-		if (paused) {
-			Display.setIcon(0, WHITE, BLACK);
-			Consumer.write(MEDIA_PLAY_PAUSE);
-			paused = false;
-		}
-		else {
-			Display.setIcon(1, RED, BLACK);
-			Consumer.write(MEDIA_PLAY_PAUSE);
-			paused = true;
-		}
-		time = millis();
-	}
-}
-
 void DeviceController::controllerDemo()
 {
-	Display.clearScreen();
-	
-	Display.countScreen();
+	Display.setTextScale(2);
+	playPause(readKey());
+}
+
+char *DeviceController::readKey() {
+	customKey = customKeypad.getKey();
+	if (customKey) {
+		if (customKey == lastKey) newKey = false;
+		else newKey = true;
+
+		lastKey = customKey;
+		return &customKey;
+	}
+	return nullptr;
+}
+
+void DeviceController::playPause(char *input)
+{
+	if (input) {
+		if (*input == '1') {
+			Consumer.write(MEDIA_VOLUME_MUTE);
+			if(newKey){
+				Display.clearScreen();
+				Display.printText(0, "Muting");
+				Display.printText(0, "System");
+			}
+		}
+		if (*input == '2') {
+			Consumer.write(MEDIA_VOLUME_UP);
+			Consumer.write(MEDIA_VOLUME_UP);
+			if (newKey) {
+				Display.clearScreen();
+				Display.printText(1, "System");
+				Display.printText(1, "Volume Up");
+			}
+		}
+		if (*input == '3') {
+			Consumer.write(MEDIA_VOLUME_DOWN);
+			Consumer.write(MEDIA_VOLUME_DOWN);
+			if (newKey) {
+				Display.clearScreen();
+				Display.printText(2, "System");
+				Display.printText(2, "Volume Down");
+			}
+		}
+	}
 }
 
