@@ -13,17 +13,12 @@
 //About Project:    https://lcd-image-converter.riuson.com/en/about/
 //Project Download: https://sourceforge.net/projects/lcd-image-converter/
 
-class Display_Resource
-{
-public:
-	
-	tFont fontArray[FONT_COUNT] = {
-		//msShell14::Font,
-		//mono_mid::mono_mid
-	};
-
-	tIcon iconArray[ICON_COUNT] = {
-		//spkOn,
-		//spkOff
-	};
+/*tFont fontArray[FONT_COUNT] = {
+	//msShell14::Font,
+	//mono_mid::mono_mid
 };
+
+tIcon iconArray[ICON_COUNT] = {
+	//spkOn,
+	//spkOff
+};*/

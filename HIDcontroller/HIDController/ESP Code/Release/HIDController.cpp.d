@@ -17,7 +17,7 @@ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\HIDCon
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\Keypad\src/Keypad.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\Keypad\src/Key.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/Arduino.h \
- C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\Display_Settings.h \
+ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\Program.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/SSD_13XX.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/wiring_private.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/Print.h \
@@ -31,19 +31,6 @@ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\HIDCon
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_includes/sumotoy_imageDescription.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_includes/sumotoy_iconDescription.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_fonts/defaultFont.c \
- C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\Display_Resources.h \
- C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_icons/sdCard.c \
- C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_icons/spkOff.c \
- C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_icons/spkOn.c \
- C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\Debug.h \
- C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\SD_Reader.h \
- C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/SD.h \
- C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/utility/SdFat.h \
- C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/utility/Sd2Card.h \
- C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/utility/Sd2PinMap.h \
- C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/utility/SdInfo.h \
- C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/utility/FatStructs.h \
- C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/utility/SdFatUtil.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\HID-master\src/HID-Project.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\HID-master\src/SingleReport/SingleAbsoluteMouse.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\libraries\HID\src/HID.h \
@@ -83,4 +70,18 @@ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\HIDCon
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\HID-master\src/MultiReport/NKROKeyboard.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\HID-master\src/MultiReport/SurfaceDial.h \
  c:\users\monke\onedrive\documents\arduino\libraries\hid-master\src\hid-apis\surfacedialapi.h \
- c:\users\monke\onedrive\documents\arduino\libraries\hid-master\src\hid-apis\SurfaceDialAPI.hpp
+ c:\users\monke\onedrive\documents\arduino\libraries\hid-master\src\hid-apis\SurfaceDialAPI.hpp \
+ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\Display_Settings.h \
+ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\Display_Resources.h \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_icons/sdCard.c \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_icons/spkOff.c \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_icons/spkOn.c \
+ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\Debug.h \
+ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\SD_Reader.h \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/SD.h \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/utility/SdFat.h \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/utility/Sd2Card.h \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/utility/Sd2PinMap.h \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/utility/SdInfo.h \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/utility/FatStructs.h \
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/utility/SdFatUtil.h

@@ -22,7 +22,7 @@ protected:
         /*Screen 1 CS*/    19,
         /*Screen 2 CS*/    20
     };
-
+public:
     //This array 
     SSD_13XX ScreenArray[NUM_SCREEN] =
     {
@@ -30,8 +30,6 @@ protected:
         SSD_13XX(CSArray[1],_dc),
         SSD_13XX(CSArray[2],_dc)
     };
-    Display_Resource Resource;
-public:
     void begin();
     
     //Goes through each screen object and displays its count
