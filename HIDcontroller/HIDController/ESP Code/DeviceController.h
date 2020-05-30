@@ -6,6 +6,8 @@
 #include "Debug.h"
 
 #define DEFAULT_DELAY 500
+#define VOLUME_INCREMENT 2
+#define DEFAULT_VOLUME 100
 #define ROWS 1
 #define COLS 3
 
@@ -24,14 +26,20 @@ class DeviceController
 
      //initialize an instance of class NewKeypad
      Keypad customKeypad = Keypad(makeKeymap(hexaKeys), rowPins, colPins, ROWS, COLS);
-     int defaultDelay = DEFAULT_DELAY;
-     int time;
-     bool paused;
 
+     //Vars stuff
+     const int defaultDelay = DEFAULT_DELAY;
+     const int defaultVolume = DEFAULT_VOLUME;
+     const int volumeDelta = VOLUME_INCREMENT;
+     int time,systemVolume;
+     bool paused,mute;
      char *readKey();
      char customKey, lastKey;
      bool newKey;
-     void playPause(char *input);
+
+     //Internal Controls
+     bool setupHardware();
+     bool setupVars();
  public:
      bool sdSetup;
 
@@ -39,6 +47,14 @@ class DeviceController
 	void begin();
     //Starts necessary processes and initializes all screen rotation to SetRotationAll
     void begin(int SetRotationAll);
+    //Reads button input
+    void buttonRead(char *input);
+    //Toggles between play and pause
+    void playPause();
+    //Push volume. 0 = down; 1 = up
+    void volumePush(bool dir);
+    //Set system volume
+    void setVolume(int inputVolume);
 
     void controllerDemo();
 };

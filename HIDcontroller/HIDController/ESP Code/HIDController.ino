@@ -2,7 +2,6 @@
 
 DeviceController Controller;
 void setup(void) {
-    Serial.begin(115200);
     Controller.begin(2);
 }
 
