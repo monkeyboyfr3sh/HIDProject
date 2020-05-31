@@ -4,14 +4,6 @@ void Display_Settings::begin()
 {
 	for (int i = 0; i < screenCount; i++) {
 		ScreenArray[i].begin();
-		if (DEBUG)
-		{
-			Serial.print("Initializing Screen ");
-			Serial.println(i);
-			ScreenArray[i].print("Screen ");
-			ScreenArray[i].print(i);
-			ScreenArray[i].println(" Setup");
-		}
 	}
 }
 

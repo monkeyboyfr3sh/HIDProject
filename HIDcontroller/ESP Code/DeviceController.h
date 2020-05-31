@@ -12,8 +12,8 @@ protected:
      SD_Reader          SDCard;
      File               *CurrentFile;
      Variable_Struct    DeviceVars;
-     Program            Media;
-     Program            Volume;
+     Volume             VolumeProg;
+     Media              MediaProg;
 
      char hexaKeys[ROWS][COLS] = {
         {'1','2','3'},
@@ -24,14 +24,13 @@ protected:
 
      //initialize an instance of class NewKeypad
      Keypad customKeypad = Keypad(makeKeymap(hexaKeys), rowPins, colPins, ROWS, COLS);
-     
 
      char *readKey();
 
-     //Internal Controls
-     bool setupHardware();
-     bool setupVars();
- public:
+     //Sets up internal controls and variables. Careful with order
+     bool setup();
+ 
+public:
      bool sdSetup;
 
     //Starts necessary processes

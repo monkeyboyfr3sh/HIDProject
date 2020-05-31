@@ -10,8 +10,8 @@
 #define COLS 3
 
 
-enum ProgramArray {
-    PROG_MEDIA_MUTE,
+enum Programs {
+    PROG_MEDIA,
     PROG_MEDIA_VOLUME
 };
 
@@ -21,9 +21,12 @@ struct Variable_Struct {
     const int defaultVolume = DEFAULT_VOLUME;
     const int volumeDelta = VOLUME_INCREMENT;
     char customKey, lastKey;
-    int time, systemVolume;
-    bool paused, mute;
     bool newKey;
+
+    uint32_t time;
+    int systemVolume;
+    bool updatescreen;
+    bool paused, mute;
 };
 
 void initProgram();
@@ -35,16 +38,29 @@ class Program
      Variable_Struct    *ProgVariable;
      uint16_t           ProgramSelect;
 
-
-
  public:
-	void SetProgram(SSD_13XX *screenPtr, Variable_Struct *variablePtr, uint16_t ProgramSelectIn);
-    bool close();
-    //Play Pause system and update program screen
-    bool playPause();
+     bool SetProgram(SSD_13XX *screenPtr, Variable_Struct *variablePtr);
+     bool changeScreen(SSD_13XX *screenPtr);
+     bool close();
+};
+
+class Volume : public Program 
+{
+public:
+    void init();
+    
     //Adjust volume up down. 0 = down/1 = up 
     bool volumePush(bool dir);
     //Adjust volume to specific value
     bool setVolume(int inputVolume);
-    //changeScreen(SSD_13XX *screenPtr, uint16_t ProgramSelect);
+    bool mute();
+};
+
+class Media : public Program
+{ 
+public:
+    void init();
+
+    //Play Pause system and update program screen
+    bool playPause();
 };

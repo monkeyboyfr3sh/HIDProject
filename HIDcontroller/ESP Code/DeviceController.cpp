@@ -2,18 +2,10 @@
 
 void DeviceController::begin()
 {	
-	Serial.println(115200);
+	Serial.begin(115200);
 	delay(1000);
-	Serial.println("Setting up hardware");
-	setupHardware();
-	Serial.println("Setting up vars");
-	setupVars();
-	
-	Serial.println("Setting up Media Program");
-	Media.SetProgram(&Display.ScreenArray[0], &DeviceVars, 0);
 
-	Serial.println("Setting up Media Program");
-	Volume.SetProgram(&Display.ScreenArray[1], &DeviceVars, 1);
+	setup();
 
 	Display.clearScreen();
 }
@@ -24,38 +16,39 @@ void DeviceController::begin(int SetRotationAll)
 	Display.setRotation(SetRotationAll);
 }
 
-bool DeviceController::setupHardware()
+bool DeviceController::setup()
 {
-	int counter = 0;
-	Serial.println("initing program");
-	initProgram();
-	Serial.println("Initializing system volume");
-	while (counter < 100) {
-		Serial.println("loop");
-		Volume.volumePush(0);
-		delay(100);
-		counter++;
-	}
-	Volume.setVolume(DeviceVars.defaultVolume);
-	//Initialize Display array
+	//Initialize Display array, this is needed for programs. This is why this is done here.
 	Display.begin();
+	Display.setTextScale(2);
+
+	//Currently just starts the consumer API
+	initProgram();
+
+	//Setting up struct variables as needed
+	DeviceVars.time = millis();
+	DeviceVars.updatescreen = true;
+	DeviceVars.paused = false;
+	DeviceVars.mute = false;
+
+	//Setting the programs. This gives needed pointers to the program class.
+	//At this point screens should be initialized and ready to use.
+	MediaProg.SetProgram(&(Display.ScreenArray[0]), &DeviceVars);
+	MediaProg.init();
+
+	VolumeProg.SetProgram(&(Display.ScreenArray[1]), &DeviceVars);
+	VolumeProg.init();
+
 	//Initialize SD Card Reader
 	sdSetup = SDCard.begin();
 
 	return true;
 }
 
-bool DeviceController::setupVars()
-{
-	DeviceVars.time = millis();
-	DeviceVars.paused = false;
-	return true;
-}
-
 void DeviceController::controllerDemo()
 {
 	Display.setTextScale(2);
-	//buttonRead(readKey());
+	buttonRead(readKey());
 }
 
 char *DeviceController::readKey() {
@@ -74,13 +67,13 @@ void DeviceController::buttonRead(char *input)
 {
 	if (input) {
 		if (*input == '1') {
-			Media.playPause();
+			VolumeProg.mute();
 		}
 		if (*input == '2') {
-			Volume.volumePush(1);
+			VolumeProg.volumePush(1);
 		}
 		if (*input == '3') {
-			Volume.volumePush(0);
+			VolumeProg.volumePush(0);
 		}
 	}
 }

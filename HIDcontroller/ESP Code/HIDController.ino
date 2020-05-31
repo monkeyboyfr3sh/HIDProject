@@ -1,7 +1,6 @@
 #include "DeviceController.h"
-
 DeviceController Controller;
-void setup(void) {
+void setup() {
     Controller.begin(2);
 }
 
