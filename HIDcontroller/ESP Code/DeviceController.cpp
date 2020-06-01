@@ -16,6 +16,20 @@ void DeviceController::begin(int SetRotationAll)
 	Display.setRotation(SetRotationAll);
 }
 
+char *DeviceController::readKey()
+{
+	char input = customKeypad.getKey();
+	if (input) {
+		DeviceVars.customKey = input;
+		if (DeviceVars.customKey == DeviceVars.lastKey) DeviceVars.newKey = false;
+		else DeviceVars.newKey = true;
+
+		DeviceVars.lastKey = DeviceVars.customKey;
+		return &DeviceVars.customKey;
+	}
+	return nullptr;
+}
+
 bool DeviceController::setup()
 {
 	//Initialize Display array, this is needed for programs. This is why this is done here.
@@ -40,7 +54,7 @@ bool DeviceController::setup()
 	VolumeProg.init();
 
 	//Initialize SD Card Reader
-	sdSetup = SDCard.begin();
+	//sdSetup = SDCard.begin();
 
 	return true;
 }
@@ -49,18 +63,6 @@ void DeviceController::controllerDemo()
 {
 	Display.setTextScale(2);
 	buttonRead(readKey());
-}
-
-char *DeviceController::readKey() {
-	DeviceVars.customKey = customKeypad.getKey();
-	if (DeviceVars.customKey) {
-		if (DeviceVars.customKey == DeviceVars.lastKey) DeviceVars.newKey = false;
-		else DeviceVars.newKey = true;
-
-		DeviceVars.lastKey = DeviceVars.customKey;
-		return &DeviceVars.customKey;
-	}
-	return nullptr;
 }
 
 void DeviceController::buttonRead(char *input)

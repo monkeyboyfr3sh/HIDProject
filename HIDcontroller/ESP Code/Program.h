@@ -6,13 +6,11 @@
 #define DEFAULT_DELAY 500
 #define VOLUME_INCREMENT 2
 #define DEFAULT_VOLUME 100
-#define ROWS 1
-#define COLS 3
 
-
-enum Programs {
-    PROG_MEDIA,
-    PROG_MEDIA_VOLUME
+enum instructions {
+    VolumeMute,
+    VolumeUp,
+    VolumeDown
 };
 
 //Vars stuff
@@ -29,6 +27,7 @@ struct Variable_Struct {
     bool paused, mute;
 };
 
+//Currently just activates consumer API
 void initProgram();
 
 class Program
@@ -36,9 +35,10 @@ class Program
  protected:
      SSD_13XX           *ProgScreen;
      Variable_Struct    *ProgVariable;
-     uint16_t           ProgramSelect;
+     bool               active;
 
  public:
+     void virtual init();
      bool SetProgram(SSD_13XX *screenPtr, Variable_Struct *variablePtr);
      bool changeScreen(SSD_13XX *screenPtr);
      bool close();

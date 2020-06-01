@@ -3,7 +3,9 @@
 #include "Program.h"
 #include "Display_Settings.h"
 #include "SD_Reader.h"
-#include "Debug.h"
+
+#define ROWS 1
+#define COLS 3
 
 class DeviceController
 {
@@ -12,8 +14,8 @@ protected:
      SD_Reader          SDCard;
      File               *CurrentFile;
      Variable_Struct    DeviceVars;
-     Volume             VolumeProg;
      Media              MediaProg;
+     Volume             VolumeProg;
 
      char hexaKeys[ROWS][COLS] = {
         {'1','2','3'},
@@ -24,9 +26,8 @@ protected:
 
      //initialize an instance of class NewKeypad
      Keypad customKeypad = Keypad(makeKeymap(hexaKeys), rowPins, colPins, ROWS, COLS);
-
+     //Reads button input
      char *readKey();
-
      //Sets up internal controls and variables. Careful with order
      bool setup();
  

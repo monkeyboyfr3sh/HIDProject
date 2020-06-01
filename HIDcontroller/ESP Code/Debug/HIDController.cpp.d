@@ -76,7 +76,6 @@ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Debug\HIDContr
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_icons/sdCard.c \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_icons/spkOff.c \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_icons/spkOn.c \
- C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Debug\Debug.h \
  C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Debug\SD_Reader.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/SD.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/utility/SdFat.h \
@@ -84,4 +83,5 @@ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Debug\HIDContr
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/utility/Sd2PinMap.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/utility/SdInfo.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/utility/FatStructs.h \
- C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/utility/SdFatUtil.h
+ C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/utility/SdFatUtil.h \
+ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Debug\Debug.h

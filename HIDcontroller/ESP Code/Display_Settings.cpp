@@ -5,6 +5,7 @@ void Display_Settings::begin()
 	for (int i = 0; i < screenCount; i++) {
 		ScreenArray[i].begin();
 	}
+	ConsoleScreen = &ScreenArray[CONSOLE_SELECT];
 }
 
 void Display_Settings::printText(int ScreenSelect, char *text)

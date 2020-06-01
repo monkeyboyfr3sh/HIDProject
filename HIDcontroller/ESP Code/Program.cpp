@@ -9,10 +9,17 @@ void initProgram()
 	Consumer.begin();
 }
 
+
+void Program::init()
+{
+	Serial.println("This class has the wrong type");
+}
+
 bool Program::SetProgram(SSD_13XX *screenPtr, Variable_Struct *variablePtr)
 {
 	ProgScreen = screenPtr;
 	ProgVariable = variablePtr;
+	active = true;
 	return true;
 }
 
@@ -25,6 +32,7 @@ bool Program::changeScreen(SSD_13XX *screenPtr)
 bool Program::close()
 {
 	ProgScreen = nullptr;
+	active = false;
 	return true;
 }
 

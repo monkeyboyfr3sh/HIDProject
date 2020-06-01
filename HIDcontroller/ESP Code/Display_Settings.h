@@ -1,10 +1,11 @@
 // Display_Settings.h
 #include <SSD_13XX.h>
 #include "Display_Resources.h"
-#include "Debug.h"
 
 //Number of Screens
 #define NUM_SCREEN 3
+//This will select the default screen responsible for system output/debugging
+#define CONSOLE_SELECT 0
 
 //SPI/TFT Pin Definitions
 #define _cs     9   //self CS
@@ -24,6 +25,8 @@ protected:
     };
 public:
     //This array 
+    //This is a screen that will be default for debug/system output
+    SSD_13XX *ConsoleScreen;
     SSD_13XX ScreenArray[NUM_SCREEN] =
     {
         SSD_13XX(CSArray[0],_dc),
