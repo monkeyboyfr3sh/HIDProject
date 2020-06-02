@@ -7,10 +7,17 @@
 //This will select the default screen responsible for system output/debugging
 #define CONSOLE_SELECT 0
 
+/*
 //SPI/TFT Pin Definitions
 #define _cs     9   //self CS
 #define _dc     7   // DC
 #define _rst    6   // TFT RESET
+*/
+
+//SPI/TFT Pin Definitions
+#define _cs     6   //self CS
+#define _dc     10   // DC
+#define _rst    9   // TFT RESET
 
 class Display_Settings
 {

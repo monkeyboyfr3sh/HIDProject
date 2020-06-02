@@ -14,7 +14,7 @@ protected:
      SD_Reader          SDCard;
      File               *CurrentFile;
      Variable_Struct    DeviceVars;
-     Media              MediaProg;
+     //Media              MediaProg;
      Volume             VolumeProg;
 
      char hexaKeys[ROWS][COLS] = {
@@ -22,7 +22,7 @@ protected:
      };
 
      byte rowPins[ROWS] = { 8 }; //connect to the row pinouts of the keypad
-     byte colPins[COLS] = { 3, 4, 5 }; //connect to the column pinouts of the keypad
+     byte colPins[COLS] = { 5, 4, 3 }; //connect to the column pinouts of the keypad
 
      //initialize an instance of class NewKeypad
      Keypad customKeypad = Keypad(makeKeymap(hexaKeys), rowPins, colPins, ROWS, COLS);

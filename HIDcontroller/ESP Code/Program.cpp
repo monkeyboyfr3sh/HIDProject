@@ -17,21 +17,30 @@ void Program::init()
 
 bool Program::SetProgram(SSD_13XX *screenPtr, Variable_Struct *variablePtr)
 {
-	ProgScreen = screenPtr;
+	ConsoleScreen = screenPtr;
+	for (int i = 0; i < SCREEN_ARRAY_COUNT; i++) ScreenArray[i] = screenPtr;
 	ProgVariable = variablePtr;
 	active = true;
 	return true;
 }
 
+bool Program::SetScreenArray(SSD_13XX *screenPtr, uint8_t AltSelect)
+{
+	ScreenArray[AltSelect] = screenPtr;
+	return true;
+}
+
 bool Program::changeScreen(SSD_13XX *screenPtr)
 {
-	ProgScreen = screenPtr;
+	ConsoleScreen = screenPtr;
 	return true;
 }
 
 bool Program::close()
 {
-	ProgScreen = nullptr;
+	ConsoleScreen = nullptr;
+	for (int i = 0; i < SCREEN_ARRAY_COUNT; i++) ScreenArray[i] = nullptr;
+
 	active = false;
 	return true;
 }
@@ -56,7 +65,14 @@ void Volume::init()
 	ProgVariable->systemVolume = 0;
 
 	setVolume(ProgVariable->defaultVolume);
-	ProgScreen->println("System volume setup!");	
+	ConsoleScreen->println("System volume setup!");	
+}
+
+bool Volume::SetScreenArray(SSD_13XX *screenPtr, int input)
+{
+	ScreenArray[input] = screenPtr;
+	ScreenArray[input]->println("Volume");
+	return true;
 }
 
 bool Volume::volumePush(bool dir)
@@ -66,9 +82,9 @@ bool Volume::volumePush(bool dir)
 		Consumer.write(MEDIA_VOLUME_UP);
 		ProgVariable->systemVolume = ProgVariable->systemVolume + ProgVariable->volumeDelta;
 		if (ProgVariable->updatescreen == true) {
-			ProgScreen->clearScreen();
-			ProgScreen->println("System");
-			ProgScreen->println("Volume Up!");
+			ScreenArray[instructions(Up)]->clearScreen();
+			ScreenArray[instructions(Up)]->println("System");
+			ScreenArray[instructions(Up)]->println("Volume Up!");
 		}
 	}
 	//Volume Down
@@ -76,9 +92,9 @@ bool Volume::volumePush(bool dir)
 		Consumer.write(MEDIA_VOLUME_DOWN);
 		ProgVariable->systemVolume = ProgVariable->systemVolume - ProgVariable->volumeDelta;
 		if (ProgVariable->updatescreen == true) {
-			ProgScreen->clearScreen();
-			ProgScreen->println("System");
-			ProgScreen->println("Volume Down!");
+			ScreenArray[instructions(Down)]->clearScreen();
+			ScreenArray[instructions(Down)]->println("System");
+			ScreenArray[instructions(Down)]->println("Volume Down!");
 		}
 	}
 }
@@ -114,18 +130,18 @@ bool Volume::mute()
 	if (ProgVariable->mute) {
 		ProgVariable->mute = false;
 		if (ProgVariable->updatescreen == true) {
-			ProgScreen->clearScreen();
-			ProgScreen->println("System");
-			ProgScreen->println("Sound");
+			ScreenArray[instructions(Mute)]->clearScreen();
+			ScreenArray[instructions(Mute)]->println("System");
+			ScreenArray[instructions(Mute)]->println("Sound");
 		}
 	}
 	else {
 		//Display.drawIcon(pause symbol);
 		ProgVariable->mute = true;
 		if (ProgVariable->updatescreen == true) {
-			ProgScreen->clearScreen();
-			ProgScreen->println("System");
-			ProgScreen->println("Muted");
+			ScreenArray[instructions(Mute)]->clearScreen();
+			ScreenArray[instructions(Mute)]->println("System");
+			ScreenArray[instructions(Mute)]->println("Muted");
 		}
 	}
 }

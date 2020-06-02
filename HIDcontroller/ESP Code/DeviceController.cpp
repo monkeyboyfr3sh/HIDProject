@@ -47,10 +47,13 @@ bool DeviceController::setup()
 
 	//Setting the programs. This gives needed pointers to the program class.
 	//At this point screens should be initialized and ready to use.
-	MediaProg.SetProgram(&(Display.ScreenArray[0]), &DeviceVars);
-	MediaProg.init();
+	//MediaProg.SetProgram(&(Display.ScreenArray[0]), &DeviceVars);
+	//MediaProg.init();
 
 	VolumeProg.SetProgram(&(Display.ScreenArray[1]), &DeviceVars);
+	VolumeProg.SetScreenArray(&(Display.ScreenArray[0]), 0);
+	VolumeProg.SetScreenArray(&(Display.ScreenArray[1]), 1);
+	VolumeProg.SetScreenArray(&(Display.ScreenArray[2]), 2);
 	VolumeProg.init();
 
 	//Initialize SD Card Reader
