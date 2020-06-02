@@ -57,7 +57,7 @@ bool DeviceController::setup()
 	VolumeProg.init();
 
 	//Initialize SD Card Reader
-	//sdSetup = SDCard.begin();
+	sdSetup = SDCard.begin();
 
 	return true;
 }

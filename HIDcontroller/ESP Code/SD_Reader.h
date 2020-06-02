@@ -4,7 +4,8 @@
 #include "Debug.h"
 
 //CS for SD Card
-#define _sdcs 2
+//#define _sdcs 2
+#define _sdcs 21
 #define BUFFER_SIZE 45
 
 //Number of attempts for SD Card
