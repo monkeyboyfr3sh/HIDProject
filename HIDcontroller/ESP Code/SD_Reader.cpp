@@ -1,7 +1,11 @@
 #include "SD_Reader.h"
+bool SD_Reader::setupFromSD() {
+    File setupFile = SD.open("setup.txt", FILE_READ);
+    while (setupFile.available()) {
+        Serial.write(setupFile.read());
+    }
 
-bool checkCard() {
-    SD.exists("/setup.txt");
+
 }
 
 bool SD_Reader::begin()
@@ -24,30 +28,6 @@ bool SD_Reader::begin()
     if (DEBUG) {
         Serial.println("SD Card Mounted");
     }
-    return checkCard;
-}
-
-char *SD_Reader::returnLine(File *readFile)
-{
-    while(readFile->available()){
-        Serial.println(readFile->read());
-    }
-    return nullptr;
-}
-
-void SD_Reader::loadIcons(File *iconsDir) {
-    while (true) {
-        File entry = iconsDir->openNextFile();
-        if (!entry) {
-            // no more files
-            break;
-        }
-        char *name = entry.name();
-        Serial.print("Char 2,1,0: ");
-        Serial.print(name[2]);
-        Serial.print(name[1]);
-        Serial.println(name[0]);
-        //bool dir = entry.isDirectory();
-        entry.close();
-    }
+    setupFromSD();
+    return true;
 }

@@ -31,9 +31,13 @@ class Program
  protected:
      SSD_13XX           *ConsoleScreen;
      SSD_13XX           *ScreenArray[SCREEN_ARRAY_COUNT];
-     Variable_Struct    *ProgVariable;
-     bool               active;
+     Variable_Struct    *DeviceVariable;
 
+     char               lastKeylocal;
+     bool               active;
+     enum instructions {
+
+     };
  public:
      void virtual init();
      virtual bool SetProgram(SSD_13XX *screenPtr, Variable_Struct *variablePtr);

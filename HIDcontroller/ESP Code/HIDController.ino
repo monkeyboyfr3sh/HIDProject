@@ -1,7 +1,7 @@
 #include "DeviceController.h"
 DeviceController Controller;
 void setup() {
-    Controller.begin(2);
+    Controller.begin();
 }
 
 void loop() {

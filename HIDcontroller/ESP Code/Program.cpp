@@ -18,8 +18,11 @@ void Program::init()
 bool Program::SetProgram(SSD_13XX *screenPtr, Variable_Struct *variablePtr)
 {
 	ConsoleScreen = screenPtr;
-	for (int i = 0; i < SCREEN_ARRAY_COUNT; i++) ScreenArray[i] = screenPtr;
-	ProgVariable = variablePtr;
+	//Defaults screen array to console screen but checks if already assigned
+	for (int i = 0; i < SCREEN_ARRAY_COUNT; i++) {
+		if (!ScreenArray[i]) ScreenArray[i] = ConsoleScreen;
+	}
+	DeviceVariable = variablePtr;
 	active = true;
 	return true;
 }
@@ -55,16 +58,16 @@ void Volume::init()
 	volumePush(0);
 	int counter = 0;
 	//Puts it on the screen once. Then doesn't update screen till after.
-	ProgVariable->updatescreen = false;
+	DeviceVariable->updatescreen = false;
 	while (counter < 100) {
 		volumePush(0);
 		delay(10);
 		counter++;
 	}
-	ProgVariable->updatescreen = true;
-	ProgVariable->systemVolume = 0;
+	DeviceVariable->updatescreen = true;
+	DeviceVariable->systemVolume = 0;
 
-	setVolume(ProgVariable->defaultVolume);
+	setVolume(DeviceVariable->defaultVolume);
 	ConsoleScreen->println("System volume setup!");	
 }
 
@@ -79,23 +82,29 @@ bool Volume::volumePush(bool dir)
 {
 	//Volume Up
 	if (dir) {
+
 		Consumer.write(MEDIA_VOLUME_UP);
-		ProgVariable->systemVolume = ProgVariable->systemVolume + ProgVariable->volumeDelta;
-		if (ProgVariable->updatescreen == true) {
-			ScreenArray[instructions(Up)]->clearScreen();
-			ScreenArray[instructions(Up)]->println("System");
-			ScreenArray[instructions(Up)]->println("Volume Up!");
+		DeviceVariable->systemVolume = DeviceVariable->systemVolume + DeviceVariable->volumeDelta;
+		if (DeviceVariable->updatescreen == true) {
+			ScreenArray[Volume::instructions(Up)]->clearScreen();
+			ScreenArray[Volume::instructions(Up)]->println("System");
+			ScreenArray[Volume::instructions(Up)]->println("Volume Up!");
 		}
+		
+		lastKeylocal = 'Up';
 	}
 	//Volume Down
 	else {
+
 		Consumer.write(MEDIA_VOLUME_DOWN);
-		ProgVariable->systemVolume = ProgVariable->systemVolume - ProgVariable->volumeDelta;
-		if (ProgVariable->updatescreen == true) {
-			ScreenArray[instructions(Down)]->clearScreen();
-			ScreenArray[instructions(Down)]->println("System");
-			ScreenArray[instructions(Down)]->println("Volume Down!");
+		DeviceVariable->systemVolume = DeviceVariable->systemVolume - DeviceVariable->volumeDelta;
+		if (DeviceVariable->updatescreen == true) {
+			ScreenArray[Volume::instructions(Down)]->clearScreen();
+			ScreenArray[Volume::instructions(Down)]->println("System");
+			ScreenArray[Volume::instructions(Down)]->println("Volume Down!");
 		}
+
+		lastKeylocal = 'Down';
 	}
 }
 
@@ -103,45 +112,45 @@ bool Volume::setVolume(int inputVolume)
 {
 	bool first = true;
 	//Slide Volume Up
-	while (ProgVariable->systemVolume < inputVolume) {
+	while (DeviceVariable->systemVolume < inputVolume) {
 		delay(10);
 		volumePush(1);
 		//Updates the screen once. Eventually i'd like to make this display a bar
 		if (first) {
 			first = false;
-			ProgVariable->updatescreen = false;
+			DeviceVariable->updatescreen = false;
 		}
 	}
 	//Slide Volume Down
-	while (ProgVariable->systemVolume > inputVolume) {
+	while (DeviceVariable->systemVolume > inputVolume) {
 		delay(10);
 		volumePush(0);
 		//Updates the screen once. Eventually i'd like to make this display a bar
 		if (first) {
 			first = false;
-			ProgVariable->updatescreen = false;
+			DeviceVariable->updatescreen = false;
 		}
 	}
-	ProgVariable->updatescreen = true;
+	DeviceVariable->updatescreen = true;
 }
 bool Volume::mute()
 {
 	Consumer.write(MEDIA_VOLUME_MUTE);
-	if (ProgVariable->mute) {
-		ProgVariable->mute = false;
-		if (ProgVariable->updatescreen == true) {
-			ScreenArray[instructions(Mute)]->clearScreen();
-			ScreenArray[instructions(Mute)]->println("System");
-			ScreenArray[instructions(Mute)]->println("Sound");
+	if (DeviceVariable->mute) {
+		DeviceVariable->mute = false;
+		if (DeviceVariable->updatescreen == true) {
+			ScreenArray[Volume::instructions(Mute)]->clearScreen();
+			ScreenArray[Volume::instructions(Mute)]->println("System");
+			ScreenArray[Volume::instructions(Mute)]->println("Sound");
 		}
 	}
 	else {
 		//Display.drawIcon(pause symbol);
-		ProgVariable->mute = true;
-		if (ProgVariable->updatescreen == true) {
-			ScreenArray[instructions(Mute)]->clearScreen();
-			ScreenArray[instructions(Mute)]->println("System");
-			ScreenArray[instructions(Mute)]->println("Muted");
+		DeviceVariable->mute = true;
+		if (DeviceVariable->updatescreen == true) {
+			ScreenArray[Volume::instructions(Mute)]->clearScreen();
+			ScreenArray[Volume::instructions(Mute)]->println("System");
+			ScreenArray[Volume::instructions(Mute)]->println("Muted");
 		}
 	}
 }
@@ -156,12 +165,12 @@ void Media::init()
 bool Media::playPause()
 {
 	Consumer.write(MEDIA_PLAY_PAUSE);
-	if (ProgVariable->paused) {
+	if (DeviceVariable->paused) {
 		//Display.drawIcon(play symbol);
-		ProgVariable->paused = false;
+		DeviceVariable->paused = false;
 	}
 	else {
 		//Display.drawIcon(pause symbol);
-		ProgVariable->paused = true;
+		DeviceVariable->paused = true;
 	}
 }
