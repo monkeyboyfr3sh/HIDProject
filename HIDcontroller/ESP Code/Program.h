@@ -6,8 +6,12 @@
 #define DEFAULT_DELAY 500
 #define VOLUME_INCREMENT 2
 #define DEFAULT_VOLUME 100
-#define SCREEN_ARRAY_COUNT 3
-#define DEFAULT_MSG_COUNT 5
+
+enum instructions {
+    VolumeMute,
+    VolumeUp,
+    VolumeDown
+};
 
 //Vars stuff
 struct Variable_Struct {
@@ -29,19 +33,13 @@ void initProgram();
 class Program
 {
  protected:
-     SSD_13XX           *ConsoleScreen;
-     SSD_13XX           *ScreenArray[SCREEN_ARRAY_COUNT];
-     Variable_Struct    *DeviceVariable;
-
-     char               lastKeylocal;
+     SSD_13XX           *ProgScreen;
+     Variable_Struct    *ProgVariable;
      bool               active;
-     enum instructions {
 
-     };
  public:
      void virtual init();
      virtual bool SetProgram(SSD_13XX *screenPtr, Variable_Struct *variablePtr);
-     virtual bool SetScreenArray(SSD_13XX *screenPtr, uint8_t AltSelect);
      bool changeScreen(SSD_13XX *screenPtr);
      bool close();
 };
@@ -49,19 +47,16 @@ class Program
 class Volume : public Program 
 {
 protected:
-    char msg1 = 'Test';
-
-
+    //Would like to turn into an array at some point but will leave like this for now
+    SSD_13XX            *volumeUpScreen;
+    SSD_13XX            *volumeDownScreen;
+    SSD_13XX            *volumeMuteScreen;
 public:
-    enum instructions {
-        Mute = 0,
-        Up = 1,
-        Down = 2
-    };
-
     void init();
-    bool SetScreenArray(SSD_13XX *screenPtr, int input);
-    //Adjust volume up down. 0 = down/1 = up, Outputs to AltDisply 0
+    
+    //Set inner screen
+    bool SetProgram(SSD_13XX *screenPtr, Variable_Struct *variablePtr);
+    //Adjust volume up down. 0 = down/1 = up 
     bool volumePush(bool dir);
     //Adjust volume to specific value
     bool setVolume(int inputVolume);
@@ -70,9 +65,12 @@ public:
 
 class Media : public Program
 { 
+protected:
+    //SSD_13XX *nextTrackScreen;
+    //SSD_13XX *previousTrackScreen;
 public:
     void init();
-    bool SetProgram(SSD_13XX *screenPtr, Variable_Struct *variablePtr);
+
     //Play Pause system and update program screen
     bool playPause();
 };
