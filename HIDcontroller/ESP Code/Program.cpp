@@ -17,10 +17,6 @@ void Program::init()
 
 bool Program::SetProgram(SSD_13XX *screenPtr, Variable_Struct *variablePtr)
 {
-	Serial.println("base SetProgram");
-	ProgScreen = screenPtr;
-	ProgVariable = variablePtr;
-	active = true;
 	return true;
 }
 
@@ -62,7 +58,9 @@ void Volume::init()
 
 bool Volume::SetProgram(SSD_13XX *screenPtr, Variable_Struct *variablePtr)
 {
-	SetProgram(screenPtr,variablePtr);
+	ProgScreen = screenPtr;
+	ProgVariable = variablePtr;
+	active = true;
 	volumeUpScreen = screenPtr;
 	volumeDownScreen = screenPtr;
 	volumeMuteScreen = screenPtr;

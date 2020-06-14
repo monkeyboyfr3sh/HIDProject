@@ -36,19 +36,19 @@ bool DeviceController::setup()
 	//MediaProg.SetProgram(&(Display.ScreenArray[0]), &DeviceVars);
 	//MediaProg.init();
 
-	//VolumeProg.SetProgram(&(Display.ScreenArray[0]), &DeviceVars);
+	VolumeProg.SetProgram(&(Display.ScreenArray[0]), &DeviceVars);
 	//VolumeProg.init();
 
 	//Initialize SD Card Reader
 	sdSetup = SDCard.begin();
-
+	Serial.println("Finished setup");
 	return true;
 }
 
 void DeviceController::controllerDemo()
 {
-	Serial.println("loop");
-	//buttonRead(readKey());
+	//Serial.println("loop");
+	buttonRead(readKey());
 }
 
 char *DeviceController::readKey() {

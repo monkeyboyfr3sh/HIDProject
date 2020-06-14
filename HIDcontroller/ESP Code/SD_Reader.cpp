@@ -28,6 +28,6 @@ bool SD_Reader::begin()
     if (DEBUG) {
         Serial.println("SD Card Mounted");
     }
-    setupFromSD();
+    //setupFromSD();
     return true;
 }
