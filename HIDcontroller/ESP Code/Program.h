@@ -5,7 +5,9 @@
 #define NUM_PROGRAM 3
 #define DEFAULT_DELAY 500
 #define VOLUME_INCREMENT 2
-#define DEFAULT_VOLUME 100
+#define VOLUME_INCREMENT_SCALE 2
+#define DEFAULT_VOLUME 80
+#define DEFAULT_TEXT_SCALE 2
 
 enum instructions {
     VolumeMute,
@@ -15,11 +17,13 @@ enum instructions {
 
 //Vars stuff
 struct Variable_Struct {
-    const int defaultDelay = DEFAULT_DELAY;
-    const int defaultVolume = DEFAULT_VOLUME;
-    const int volumeDelta = VOLUME_INCREMENT;
+    const int   defaultDelay = DEFAULT_DELAY;
+    const int   defaultVolume = DEFAULT_VOLUME;
+    const int   volumeDelta = VOLUME_INCREMENT;
+    int         volumeDetlaScale = VOLUME_INCREMENT_SCALE;
     char customKey, lastKey;
     bool newKey;
+    bool centerCursor;
 
     uint32_t time;
     int systemVolume;
@@ -36,10 +40,14 @@ class Program
      SSD_13XX           *ProgScreen;
      Variable_Struct    *ProgVariable;
      bool               active;
+     bool               idleScreen;
+     int                currentTextScale;
 
  public:
+
      void virtual init();
      virtual bool SetProgram(SSD_13XX *screenPtr, Variable_Struct *variablePtr);
+     virtual bool idle();
      bool changeScreen(SSD_13XX *screenPtr);
      bool close();
 };
@@ -52,10 +60,11 @@ protected:
     SSD_13XX            *volumeDownScreen;
     SSD_13XX            *volumeMuteScreen;
 public:
+
     void init();
-    
     //Set inner screen
     bool SetProgram(SSD_13XX *screenPtr, Variable_Struct *variablePtr);
+    bool idle();
     //Adjust volume up down. 0 = down/1 = up 
     bool volumePush(bool dir);
     //Adjust volume to specific value

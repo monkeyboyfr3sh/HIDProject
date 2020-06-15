@@ -1,4 +1,4 @@
-C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\SPI\SPI.cpp.o: \
+C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\SparkFun_promicro_16MHzatmega32U4\Release\SPI\SPI.cpp.o: \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\libraries\SPI\src\SPI.cpp \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\libraries\SPI\src\SPI.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/Arduino.h \
@@ -13,4 +13,4 @@ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\SPI\SP
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/Arduino.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/USBDesc.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/USBCore.h \
- C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\variants\leonardo/pins_arduino.h
+ C:\Users\monke\AppData\Local\arduino15\packages\SparkFun\hardware\avr\1.1.13\variants\promicro/pins_arduino.h

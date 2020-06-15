@@ -1,4 +1,4 @@
-C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\SD\File.cpp.o: \
+C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\SparkFun_promicro_16MHzatmega32U4\Release\SD\File.cpp.o: \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src\File.cpp \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/SD.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/Arduino.h \
@@ -13,7 +13,7 @@ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\SD\Fil
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/Arduino.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/USBDesc.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/USBCore.h \
- C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\variants\leonardo/pins_arduino.h \
+ C:\Users\monke\AppData\Local\arduino15\packages\SparkFun\hardware\avr\1.1.13\variants\promicro/pins_arduino.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/utility/SdFat.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/utility/Sd2Card.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SD\src/utility/Sd2PinMap.h \

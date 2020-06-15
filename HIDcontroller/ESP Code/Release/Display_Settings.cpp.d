@@ -1,6 +1,6 @@
-C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\Display_Settings.cpp.o: \
- C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\Display_Settings.cpp \
- C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\Display_Settings.h \
+C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\SparkFun_promicro_16MHzatmega32U4\Release\Display_Settings.cpp.o: \
+ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\SparkFun_promicro_16MHzatmega32U4\Release\Display_Settings.cpp \
+ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\SparkFun_promicro_16MHzatmega32U4\Release\Display_Settings.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/SSD_13XX.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/Arduino.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/binary.h \
@@ -14,7 +14,7 @@ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\Displa
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/Arduino.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/USBDesc.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/USBCore.h \
- C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\variants\leonardo/pins_arduino.h \
+ C:\Users\monke\AppData\Local\arduino15\packages\SparkFun\hardware\avr\1.1.13\variants\promicro/pins_arduino.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/wiring_private.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/Print.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\libraries\SPI\src/SPI.h \
@@ -27,7 +27,7 @@ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\Displa
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_includes/sumotoy_imageDescription.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_includes/sumotoy_iconDescription.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_fonts/defaultFont.c \
- C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\Display_Resources.h \
+ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\SparkFun_promicro_16MHzatmega32U4\Release\Display_Resources.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_icons/sdCard.c \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_icons/spkOff.c \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/_icons/spkOn.c

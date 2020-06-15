@@ -1,6 +1,6 @@
-C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\Program.cpp.o: \
- C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\Program.cpp \
- C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\Program.h \
+C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\SparkFun_promicro_16MHzatmega32U4\Release\Program.cpp.o: \
+ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\SparkFun_promicro_16MHzatmega32U4\Release\Program.cpp \
+ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\SparkFun_promicro_16MHzatmega32U4\Release\Program.h \
  C:\Users\monke\OneDrive\Documents\Arduino\libraries\SSD_13XX/SSD_13XX.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/Arduino.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/binary.h \
@@ -14,7 +14,7 @@ C:\Users\monke\AppData\Local\Temp\VMBuilds\HIDController\leonardo\Release\Progra
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/Arduino.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/USBDesc.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/USBCore.h \
- C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\variants\leonardo/pins_arduino.h \
+ C:\Users\monke\AppData\Local\arduino15\packages\SparkFun\hardware\avr\1.1.13\variants\promicro/pins_arduino.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/wiring_private.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\cores\arduino/Print.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\arduino\avr\libraries\SPI\src/SPI.h \

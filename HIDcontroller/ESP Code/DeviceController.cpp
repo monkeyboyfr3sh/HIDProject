@@ -37,7 +37,7 @@ bool DeviceController::setup()
 	//MediaProg.init();
 
 	VolumeProg.SetProgram(&(Display.ScreenArray[0]), &DeviceVars);
-	//VolumeProg.init();
+	VolumeProg.init();
 
 	//Initialize SD Card Reader
 	sdSetup = SDCard.begin();
@@ -47,8 +47,8 @@ bool DeviceController::setup()
 
 void DeviceController::controllerDemo()
 {
-	//Serial.println("loop");
 	buttonRead(readKey());
+	VolumeProg.idle();
 }
 
 char *DeviceController::readKey() {
@@ -68,15 +68,15 @@ void DeviceController::buttonRead(char *input)
 {
 	if (input) {
 		if (*input == '1') {
-			//VolumeProg.mute();
+			VolumeProg.mute();
 			Serial.println("1");
 		}
 		if (*input == '2') {
-			//VolumeProg.volumePush(1);
+			VolumeProg.volumePush(1);
 			Serial.println("2");
 		}
 		if (*input == '3') {
-			//VolumeProg.volumePush(0);
+			VolumeProg.volumePush(0);
 			Serial.println("3");
 		}
 	}

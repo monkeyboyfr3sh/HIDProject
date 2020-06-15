@@ -4,6 +4,7 @@ void Display_Settings::begin()
 {
 	for (int i = 0; i < screenCount; i++) {
 		ScreenArray[i].begin();
+		//ScreenArray[i].setFont
 	}
 	ConsoleScreen = &ScreenArray[CONSOLE_SELECT];
 }
