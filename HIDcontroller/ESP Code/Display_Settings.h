@@ -15,7 +15,7 @@
 */
 
 //SPI/TFT Pin Definitions
-#define _cs     6   //self CS
+#define _cs     3   //self CS
 #define _dc     10   // DC
 #define _rst    9   // TFT RESET
 
@@ -26,9 +26,9 @@ protected:
     //CS Pin Definitions
     int CSArray[NUM_SCREEN] =
     {
-        /*Screen 0 CS*/    18,
+        /*Screen 0 CS*/    20,
         /*Screen 1 CS*/    19,
-        /*Screen 2 CS*/    20
+        /*Screen 2 CS*/    18
     };
 public:
     //This array 

@@ -4,7 +4,7 @@
 #include "Display_Settings.h"
 #include "SD_Reader.h"
 
-#define ROWS 1
+#define ROWS 2
 #define COLS 3
 
 class DeviceController
@@ -19,15 +19,16 @@ protected:
 
      char hexaKeys[ROWS][COLS] = {
         {'1','2','3'},
+        {'4','5','6'}
      };
 
-     byte rowPins[ROWS] = { 8 }; //connect to the row pinouts of the keypad
-     byte colPins[COLS] = { 3, 4, 5 }; //connect to the column pinouts of the keypad
+     byte rowPins[ROWS] = { 8, 7 }; //connect to the row pinouts of the keypad
+     byte colPins[COLS] = { 6, 5, 4 }; //connect to the column pinouts of the keypad
 
      //initialize an instance of class NewKeypad
      Keypad customKeypad = Keypad(makeKeymap(hexaKeys), rowPins, colPins, ROWS, COLS);
      //Reads button input
-     char *readKey();
+     bool readKey();
      //Sets up internal controls and variables. Careful with order
      bool setup();
  
@@ -39,7 +40,7 @@ public:
     //Starts necessary processes and initializes all screen rotation to SetRotationAll
     void begin(int SetRotationAll);
     //Reads button input
-    void buttonRead(char *input);
+    void buttonRead();
 
     void controllerDemo();
 };

@@ -71,11 +71,14 @@ void Volume::init()
 	ProgScreen->println("System");
 	ProgScreen->println("volume set to");
 	
-	volumeUpScreen->setTextScale(4);
-	volumeUpScreen->println(ProgVariable->systemVolume);
+	ProgScreen->setTextScale(4);
+	ProgScreen->println(ProgVariable->systemVolume);
 	ProgScreen->setTextScale(currentTextScale);
 
-	delay(2000);
+	initTime = millis();
+	while (millis() - initTime < setupDelay) {
+		if (ProgVariable->newKey) break;
+	}
 	ProgScreen->clearScreen();
 	ProgScreen->println("System");
 	ProgScreen->println("volume setup!");
@@ -115,6 +118,10 @@ bool Volume::volumePush(bool dir)
 			volumeUpScreen->clearScreen();
 			volumeUpScreen->println("System");
 			volumeUpScreen->println("Volume Up!");
+
+			volumeUpScreen->setTextScale(4);
+			volumeUpScreen->println(ProgVariable->systemVolume);
+			volumeUpScreen->setTextScale(currentTextScale);
 		}
 	}
 	//Volume Down
@@ -129,12 +136,11 @@ bool Volume::volumePush(bool dir)
 			volumeDownScreen->clearScreen();
 			volumeDownScreen->println("System");
 			volumeDownScreen->println("Volume Down!");
+
+			volumeDownScreen->setTextScale(4);
+			volumeDownScreen->println(ProgVariable->systemVolume);
+			volumeDownScreen->setTextScale(currentTextScale);
 		}
-	}
-	if (ProgVariable->updatescreen == true) {
-		volumeUpScreen->setTextScale(4);
-		volumeUpScreen->println(ProgVariable->systemVolume);
-		ProgScreen->setTextScale(currentTextScale);
 	}
 	return true;
 }
@@ -190,7 +196,12 @@ bool Volume::mute()
 /*--------------------------------------------------------------------------------------------------------*/
 void Media::init()
 {
-	Serial.println("This is a media program");
+	
+}
+
+bool Media::SetProgram(SSD_13XX *screenPtr, Variable_Struct *variablePtr)
+{
+	return false;
 }
 
 bool Media::playPause()

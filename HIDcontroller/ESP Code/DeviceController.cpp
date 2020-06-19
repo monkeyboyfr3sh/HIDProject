@@ -5,7 +5,7 @@ void DeviceController::begin()
 	Serial.begin(115200);
 	delay(1000);
 
-	setup();
+	DeviceVars.deviceSetup=setup();
 
 	Display.clearScreen();
 }
@@ -37,48 +37,43 @@ bool DeviceController::setup()
 	//MediaProg.init();
 
 	VolumeProg.SetProgram(&(Display.ScreenArray[0]), &DeviceVars);
+	VolumeProg.volumeMuteScreen = &(Display.ScreenArray[0]);
+	VolumeProg.volumeUpScreen = &(Display.ScreenArray[1]);
+	VolumeProg.volumeDownScreen = &(Display.ScreenArray[1]);
 	VolumeProg.init();
 
 	//Initialize SD Card Reader
 	sdSetup = SDCard.begin();
-	Serial.println("Finished setup");
 	return true;
 }
 
 void DeviceController::controllerDemo()
 {
-	buttonRead(readKey());
-	VolumeProg.idle();
+	buttonRead();
 }
 
-char *DeviceController::readKey() {
-	DeviceVars.customKey = customKeypad.getKey();
+bool DeviceController::readKey() {
+	char input = customKeypad.getKey();
 
-	if (DeviceVars.customKey) {
+	if (input) {
+		DeviceVars.lastKey =DeviceVars.customKey;
+		DeviceVars.customKey = input;
 		if (DeviceVars.customKey == DeviceVars.lastKey) DeviceVars.newKey = false;
 		else DeviceVars.newKey = true;
-
-		DeviceVars.lastKey = DeviceVars.customKey;
-		return &DeviceVars.customKey;
+		return true;
 	}
-	return nullptr;
+	return false;
 }
 
-void DeviceController::buttonRead(char *input)
+void DeviceController::buttonRead()
 {
-	if (input) {
-		if (*input == '1') {
-			VolumeProg.mute();
-			Serial.println("1");
-		}
-		if (*input == '2') {
-			VolumeProg.volumePush(1);
-			Serial.println("2");
-		}
-		if (*input == '3') {
-			VolumeProg.volumePush(0);
-			Serial.println("3");
-		}
+	if(readKey()){
+		if (DeviceVars.customKey == '1') VolumeProg.mute();
+		if (DeviceVars.customKey == '2') VolumeProg.volumePush(1);
+		if (DeviceVars.customKey == '3') VolumeProg.volumePush(0);
+		if (DeviceVars.customKey == '4') VolumeProg.mute();
+		if (DeviceVars.customKey == '5') VolumeProg.volumePush(1);
+		if (DeviceVars.customKey == '6') VolumeProg.volumePush(0);
 	}
 }
 
